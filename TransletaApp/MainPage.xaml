@@ -1,0 +1,142 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="TransletaApp.MainPage"
+             Background="#effeff"
+             FlowDirection="LeftToRight">
+
+    <ScrollView>
+
+        <VerticalStackLayout>
+
+            <StackLayout  >
+
+                <Grid ColumnDefinitions="0.1* , 0.8*,0.1"  Padding="5">
+
+                    <ImageButton Grid.Column="0" WidthRequest="50" x:Name="AboutButt" Clicked="AboutButt_Clicked" HeightRequest="50" Source="abut.png"/>
+
+                </Grid>
+
+                <VerticalStackLayout VerticalOptions="Center" HorizontalOptions="Center" Spacing="10" Padding="10">
+
+
+                    <!--تیتر و لوگو-->
+                    <HorizontalStackLayout   x:Name="logoAndName" HorizontalOptions="Center" VerticalOptions="Center" Padding="10" >
+
+                        <Image Source="trans.png" HeightRequest="50" WidthRequest="60"/>
+                        <VerticalStackLayout    HorizontalOptions="Center" VerticalOptions="End">
+
+                            <Label Text="فــــــراتــــــک"
+                FontFamily="font"
+                FontSize="30"
+                x:Name="logoText"
+                TextColor="Blue"
+             
+                FontAttributes="Bold"/>
+                            <Label Text="Fratak Translator"
+                FontSize="14"
+                TextColor="Gray"
+                x:Name="tozihLogo"
+                HorizontalOptions="Center"/>
+                        </VerticalStackLayout>
+
+                    </HorizontalStackLayout>
+
+
+                    <!--تیتر و لوگو-->
+
+
+
+                    <!-- فیلد انتخاب زبان و جابجایی زبان -->
+                    <Grid WidthRequest="300"   x:Name="GridSelect" ColumnDefinitions="0.4*, 0.2*, 0.4*" Padding="10" VerticalOptions="Center" HorizontalOptions="Center" BackgroundColor="#effeff" >
+                        <Picker  SelectedIndexChanged="sourceLanguage_SelectedIndexChanged" TitleColor="Black"   HorizontalOptions="Center" VerticalOptions="Center" HorizontalTextAlignment="Center" FontFamily="font" FontAttributes="Bold" Grid.Column="0"  x:Name="sourceLanguage" Title="زبان مبدأ" />
+                        <Button Text="⇆"
+         FontFamily="font"
+         Grid.Column="1"
+         FontSize="50"
+         TextColor="Blue"
+             x:Name="SwitchLanguages"
+         BackgroundColor="Transparent"
+         HorizontalOptions="Center"
+         Clicked="SwitchLanguages_Clicked" />
+                        <Picker TitleColor="Black"  HorizontalOptions="Center" VerticalOptions="Center" HorizontalTextAlignment="Center" FontAttributes="Bold" FontFamily="font" Grid.Column="2"  x:Name="targetLanguage" Title="زبان مقصد" />
+                    </Grid>
+
+                    <!-- فیلد ورود متن -->
+                    <Frame Padding="10" x:Name="frame1" WidthRequest="300"  BackgroundColor="#FFFFFF" CornerRadius="15" HasShadow="true">
+                        <Editor x:Name="inputText"
+          FontFamily="font"
+          HorizontalTextAlignment="End"
+          TextColor="Black"
+          PlaceholderColor="Gray"
+          Placeholder="متن را وارد کنید"
+          AutoSize="TextChanges"
+          FontSize="Medium"
+          BackgroundColor="White"
+          WidthRequest="280"
+          HeightRequest="120"
+          TextChanged="inputText_TextChanged"/>
+                    </Frame>
+
+                    <!-- دکمه ترجمه -->
+                    <Button Text="ترجمه"
+     VerticalOptions="Center"
+     
+     FontFamily="font"
+     FontSize="17"
+     TextColor="White"
+     BackgroundColor="#4A00E0"
+     CornerRadius="15"
+     HeightRequest="50"
+     WidthRequest="300"
+     x:Name="TranslateText"
+     Clicked="TranslateText_Clicked" />
+
+                    <!-- فیلد نمایش ترجمه -->
+                    <Frame  x:Name="frame2" WidthRequest="300" IsVisible="False" Padding="10" BackgroundColor="#FFFFFF" CornerRadius="15" VerticalOptions="Center" HasShadow="true">
+                        <Label
+         x:Name="translatedText" 
+         FontFamily="font"
+         Text=" "
+         IsVisible="False"
+         HorizontalTextAlignment="End"
+         FontSize="Medium"
+         WidthRequest="280"
+         
+         TextColor="Black" />
+                    </Frame>
+
+                    <!-- دکمه‌های کپی و اشتراک‌گذاری -->
+                    <HorizontalStackLayout IsVisible="False"  x:Name="copyshera" Spacing="10" HorizontalOptions="Center">
+                        <Button Text="کپی"
+         FontFamily="font"
+         FontSize="17"
+         x:Name="CopyText"
+         BackgroundColor="#00C853"
+         TextColor="White"
+         WidthRequest="140"
+         CornerRadius="15"
+         Clicked="CopyText_Clicked" />
+                        <Button Text="اشتراک‌گذاری"
+         FontFamily="font"
+         FontSize="17"
+         CornerRadius="15"
+         x:Name="ShareText"
+         BackgroundColor="#0288D1"
+         TextColor="White"
+         WidthRequest="140"
+         Clicked="ShareText_Clicked" />
+                    </HorizontalStackLayout>
+
+
+                </VerticalStackLayout>
+
+        </StackLayout>
+
+        </VerticalStackLayout>
+        
+    </ScrollView>
+
+    
+    
+</ContentPage>
